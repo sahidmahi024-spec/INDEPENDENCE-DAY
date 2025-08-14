@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Independence Day Celebration</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background: #ff9933; /* Saffron */
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #138808; /* Green */
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(45deg, #ff9933, #ffffff, #138808);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #000;
+            animation: fadeIn 2s ease-in;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+        }
+
+        #countdown {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        /* History Section */
+        #history {
+            padding: 4rem 2rem;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        #history h2 {
+            color: #ff9933;
+            margin-bottom: 1rem;
+        }
+
+        #history p {
+            max-width: 800px;
+            margin: 0 auto 1rem;
+            text-align: left;
+        }
+
+        #history button {
+            padding: 0.5rem 1rem;
+            background: #138808;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        #history button:hover {
+            background: #ff9933;
+        }
+
+        /* Gallery Section */
+        #gallery {
+            padding: 4rem 2rem;
+            background: #f4f4f4;
+            text-align: center;
+        }
+
+        #gallery h2 {
+            color: #ff9933;
+            margin-bottom: 1rem;
+        }
+
+        .slideshow-container {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+        }
+
+        .slide img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+        }
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        .prev:hover, .next:hover {
+            background: #ff9933;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 4rem 2rem;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        #contact h2 {
+            color: #ff9933;
+            margin-bottom: 1rem;
+        }
+
+        #contact form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        #contact input, #contact textarea {
+            padding: 0.5rem;
+            border: 1px solid #138808;
+            border-radius: 5px;
+        }
+
+        #contact button {
+            padding: 0.5rem;
+            background: #138808;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #contact button:hover {
+            background: #ff9933;
+        }
+
+        /* Footer */
+        footer {
+            background: #138808;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1.2rem; }
+            nav ul { flex-direction: column; text-align: center; }
+            nav ul li { margin: 0.5rem 0; }
+            #history p { padding: 0 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#history">History</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Happy Independence Day!</h1>
+        <p>Celebrating India's Freedom on August 15</p>
+        <div id="countdown"></div>
+    </section>
+
+    <!-- History Section -->
+    <section id="history">
+        <h2>History of Independence Day and the Indian Flag</h2>
+        <p>India celebrates its Independence Day on August 15, marking the end of nearly two centuries of British colonial rule in 1947. The freedom struggle, led by figures like Mahatma Gandhi, Jawaharlal Nehru, and Subhas Chandra Bose, involved civil disobedience and non-violent resistance, culminating in the Indian Independence Act of 1947. On this day, the Prime Minister hoists the national flag at the Red Fort in Delhi, followed by a parade and a speech, symbolizing national pride and unity.</p>
+        <p>The Indian national flag, known as the Tiranga, is a horizontal tricolor of saffron (courage and sacrifice), white (peace and truth), and green (fertility and growth), with the navy-blue Ashoka Chakra, a 24-spoke wheel symbolizing progress and righteousness, at its center. The flag was officially adopted on July 22, 1947, by the Constituent Assembly, just weeks before independence.</p>
+        <p>The flag's evolution began in 1906 with the Calcutta Flag, featuring green, yellow, and red stripes with lotuses, "Vande Mataram," and a crescent moon and sun. In 1907, Madam Bhikaji Cama hoisted a modified version in Stuttgart, Germany, the first Indian flag raised abroad. The Home Rule Movement’s 1917 flag included red and green stripes with the Union Jack and Saptarishi stars. In 1921, Pingali Venkayya designed a flag with red and green stripes, later adding a white stripe and charkha at Mahatma Gandhi’s suggestion. By 1931, the Congress adopted a saffron-white-green tricolor with a charkha. In 1947, the charkha was replaced with the Ashoka Chakra, proposed by Surayya Tyabji, to create the modern Tiranga.</p>
+        <p id="history-fact">Loading historical fact...</p>
+        <button onclick="fetchFact()">New Fact</button>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2>Indian Flag Gallery</h2>
+        <div class="slideshow-container">
+            <div class="slide">
+                <img src="https://images.pexels.com/photos/1287145/pexels-photo-1287145.jpeg" alt="Indian Flag at Sunset">
+            </div>
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1627905726347-6c6980b6b7f6" alt="Indian Flag on Mountain">
+            </div>
+            <div class="slide">
+                <img src="https://images.pexels.com/photos/4068386/pexels-photo-4068386.jpeg" alt="Indian Flag over City">
+            </div>
+            <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+        <p>Images sourced from Pexels and Unsplash, showcasing the Indian flag in various settings.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Share Your Thoughts</h2>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+            <label for="message">Message:</label>
+            <textarea id="message" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <p id="form-message"></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Website created by Sahid Akhtar</p>
+        <p>Contact: 9832503541 | Email: sahidakhtar1804@gmail.com</p>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        function startCountdown() {
+            const today = new Date();
+            const currentYear = today.getFullYear();
+            const targetDate = new Date(August 15, ${currentYear} 00:00:00).getTime();
+            const countdownElement = document.getElementById('countdown');
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+
+                if (distance <= 0) {
+                    // Today is August 15, 2025, so show celebratory message
+                    countdownElement.innerHTML = "Happy Independence Day!";
+                    // Start countdown to next year's Independence Day
+                    const nextYear = new Date(August 15, ${currentYear + 1} 00:00:00).getTime();
+                    const nextDistance = nextYear - now;
+                    if (nextDistance > 0) {
+                        const days = Math.floor(nextDistance / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((nextDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((nextDistance % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((nextDistance % (1000 * 60)) / 1000);
+                        countdownElement.innerHTML = Happy Independence Day! Next celebration in ${days}d ${hours}h ${minutes}m ${seconds}s;
+                    }
+                } else {
+                    // Show countdown to today's Independence Day (unlikely since it's past midnight)
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                    countdownElement.innerHTML = ${days}d ${hours}h ${minutes}m ${seconds}s until Independence Day 2025;
+                }
+            }
+
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        }
+
+        // Historical Facts
+        const facts = [
+            "India gained independence from British rule on August 15, 1947.",
+            "The Indian Independence Act was passed by the British Parliament in 1947.",
+            "Jawaharlal Nehru delivered the famous 'Tryst with Destiny' speech on the eve of independence.",
+            "The Indian flag was designed by Pingali Venkayya in 1921.",
+            "The Ashoka Chakra replaced the charkha in the flag in 1947, symbolizing progress."
+        ];
+
+        function fetchFact() {
+            const factElement = document.getElementById('history-fact');
+            const randomFact = facts[Math.floor(Math.random() * facts.length)];
+            factElement.innerHTML = randomFact;
+        }
+
+        // Slideshow
+        let slideIndex = 0;
+        showSlide(slideIndex);
+
+        function changeSlide(n) {
+            showSlide(slideIndex += n);
+        }
+
+        function showSlide(n) {
+            const slides = document.getElementsByClassName('slide');
+            if (n >= slides.length) slideIndex = 0;
+            if (n < 0) slideIndex = slides.length - 1;
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = 'none';
+            }
+            slides[slideIndex].style.display = 'block';
+        }
+
+        // Form Validation
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+            const formMessage = document.getElementById('form-message');
+
+            if (name && message) {
+                formMessage.innerText = Thank you, ${name}! Your message has been received.;
+                formMessage.style.color = '#138808';
+                this.reset();
+            } else {
+                formMessage.innerText = 'Please fill out all fields.';
+                formMessage.style.color = 'red';
+            }
+        });
+
+        // Initialize
+        startCountdown();
+        fetchFact();
+    </script>
+</body>
+</html>
