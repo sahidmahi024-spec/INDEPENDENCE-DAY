@@ -1,232 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Afsana's Birthday | By Sahid Akhtar</title>
-    <style>
-        :root {
-            --pink: #ff0055;
-            --gold: #ffd700;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Zumaina ❤️</title>
 
-        body {
-            margin: 0;
-            background: #000;
-            color: white;
-            font-family: 'Poppins', sans-serif;
-            overflow: hidden;
-            perspective: 1200px;
-        }
-
-        /* 4D Background Shift */
-        .bg-layer {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, #400010 0%, #000 100%);
-            z-index: -1;
-            animation: pulseBg 10s infinite alternate;
-        }
-
-        @keyframes pulseBg {
-            0% { filter: hue-rotate(0deg); }
-            100% { filter: hue-rotate(45deg); }
-        }
-
-        /* 3D Photo Cube */
-        .cube-container {
-            width: 150px;
-            height: 150px;
-            perspective: 1000px;
-            margin: 20px auto;
-        }
-
-        .cube {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            transform-style: preserve-3d;
-            animation: rotateCube 10s infinite linear;
-        }
-
-        @keyframes rotateCube {
-            from { transform: rotateX(0) rotateY(0); }
-            to { transform: rotateX(360deg) rotateY(360deg); }
-        }
-
-        .cube-face {
-            position: absolute;
-            width: 150px;
-            height: 150px;
-            background: rgba(255, 0, 85, 0.3);
-            border: 2px solid var(--gold);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            backdrop-filter: blur(5px);
-        }
-
-        /* Cube Face Positions */
-        .front  { transform: translateZ(75px); }
-        .back   { transform: rotateY(180deg) translateZ(75px); }
-        .right  { transform: rotateY(90deg) translateZ(75px); }
-        .left   { transform: rotateY(-90deg) translateZ(75px); }
-        .top    { transform: rotateX(90deg) translateZ(75px); }
-        .bottom { transform: rotateX(-90deg) translateZ(75px); }
-
-        /* Countdown Style */
-        .countdown-box {
-            text-align: center;
-            transform: translateZ(100px);
-        }
-
-        .timer-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .unit {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px;
-            border-radius: 15px;
-            border-bottom: 3px solid var(--pink);
-        }
-
-        .unit span { font-size: 2.5rem; color: var(--gold); display: block; }
-
-        /* Content Sections */
-        .hidden { display: none !important; }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            padding: 40px;
-            border-radius: 30px;
-            border: 1px solid rgba(255,255,255,0.2);
-            text-align: center;
-            max-width: 500px;
-        }
-
-        .robot { font-size: 80px; animation: bounce 2s infinite; cursor: pointer; }
-        @keyframes bounce { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-20px) scale(1.1); } }
-
-        /* Rose Particles */
-        .rose { position: absolute; pointer-events: none; animation: fly 5s linear infinite; }
-        @keyframes fly { 
-            0% { transform: translateY(-10vh) translateZ(-200px); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: translateY(110vh) translateZ(200px) rotate(360deg); } 
-        }
-    </style>
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+scroll-behavior:smooth;
+}
+body{
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+overflow-x:hidden;
+color:white;
+}
+section{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+h1{
+font-size:45px;
+margin-bottom:20px;
+}
+p{
+font-size:22px;
+max-width:800px;
+line-height:1.8;
+}
+button{
+margin-top:30px;
+padding:15px 35px;
+font-size:20px;
+border:none;
+border-radius:40px;
+background:#fff;
+color:#ff2d55;
+cursor:pointer;
+font-weight:bold;
+transition:.4s;
+}
+button:hover{
+transform:scale(1.1);
+}
+.heart{
+position:fixed;
+color:red;
+font-size:22px;
+animation:fall linear infinite;
+}
+@keyframes fall{
+0%{
+transform:translateY(-10vh);
+opacity:1;
+}
+100%{
+transform:translateY(110vh);
+opacity:0;
+}
+}
+#yesBtn{
+background:#00c853;
+color:white;
+}
+#noBtn{
+background:#d50000;
+color:white;
+position:absolute;
+}
+</style>
 </head>
+
 <body>
 
-<div class="bg-layer"></div>
-<audio id="music" loop><source src="birthday-song.mp3" type="audio/mpeg"></audio>
+<section>
+<h1>❤️ Welcome Zumaina ❤️</h1>
+<p>This website is specially made for the most beautiful person in my life.</p>
+<button onclick="next(1)">Start</button>
+</section>
 
-<div style="height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-    
-    <div id="step-entry">
-        <button onclick="startApp()" style="padding: 20px 40px; font-size: 20px; background: var(--pink); border: none; color: white; border-radius: 50px; cursor: pointer; box-shadow: 0 0 20px var(--pink);">Open Afsana's Surprise ✨</button>
-    </div>
+<section>
+<h1>You Are Special 🌸</h1>
+<p>
+Your smile makes my day brighter.<br>
+Your kindness inspires me.<br>
+Your presence makes everything beautiful.
+</p>
+<button onclick="next(2)">Next</button>
+</section>
 
-    <div id="step-countdown" class="hidden countdown-box">
-        <div class="cube-container">
-            <div class="cube">
-                <div class="cube-face front">🌹</div>
-                <div class="cube-face back">💖</div>
-                <div class="cube-face right">🎂</div>
-                <div class="cube-face left">✨</div>
-                <div class="cube-face top">🎈</div>
-                <div class="cube-face bottom">💎</div>
-            </div>
-        </div>
-        <h2 style="letter-spacing: 2px;">WAITING FOR JANUARY 19TH...</h2>
-        <div class="timer-grid">
-            <div class="unit"><span id="d">00</span>Days</div>
-            <div class="unit"><span id="h">00</span>Hrs</div>
-            <div class="unit"><span id="m">00</span>Mins</div>
-            <div class="unit"><span id="s">00</span>Secs</div>
-        </div>
-    </div>
+<section>
+<h1>A Small Message 💖</h1>
+<p>
+I may not be perfect,<br>
+but my feelings for you are genuine.<br>
+Every moment with you feels precious.
+</p>
+<button onclick="next(3)">Next</button>
+</section>
 
-    <div id="step-celebration" class="hidden glass-card">
-        <div class="robot" onclick="alert('Sahid says: You are the most beautiful person in the world!')">🤖</div>
-        <h1 id="headline" style="color: var(--gold);">Happy Birthday Afsana!</h1>
-        <p id="quote" style="font-style: italic; font-size: 1.2rem;"></p>
-        <div id="sahid-tag" style="margin-top: 30px; font-weight: bold; font-size: 1.5rem; color: var(--gold); text-shadow: 0 0 10px var(--gold);"></div>
-    </div>
-</div>
+<section>
+<h1>Some Shayari ✨</h1>
+
+<p>
+"Har dua mein tera naam aaye,<br>
+Har khushi tere paas aaye.<br>
+Bas itni si khwahish hai meri,<br>
+Tu hamesha meri zindagi mein muskuraye."
+</p>
+
+<button onclick="next(4)">Next</button>
+</section>
+
+<section>
+<h1>My Promise 🤍</h1>
+
+<p>
+I don't promise a perfect life.<br>
+But I promise to stand beside you,<br>
+respect you,<br>
+support you,<br>
+and never stop caring for you.
+</p>
+
+<button onclick="next(5)">Next</button>
+</section>
+
+<section style="position:relative;">
+<h1>💍 Will You Be Mine, Zumaina? 💍</h1>
+
+<p>
+No matter what your answer is,<br>
+I will always respect you.
+</p>
+
+<button id="yesBtn" onclick="yes()">YES ❤️</button>
+
+<button id="noBtn" onmouseover="moveNo()">NO 😅</button>
+
+<h2 id="result" style="margin-top:90px;"></h2>
+
+</section>
 
 <script>
-    const bday = new Date("Jan 19, 2026 00:00:00").getTime();
-    const content = [
-        {h: "Happy Birthday Afsana!", q: "Tera muskurana, har gham ko bhulana hai..."},
-        {h: "My Life, My Love", q: "I promise to make every day special for you."},
-        {h: "Forever Yours", q: "I Love You More Than Words Can Say.", p: "Proposed By Sahid Akhtar ❤️"}
-    ];
-    let idx = 0;
 
-    function startApp() {
-        document.getElementById('step-entry').classList.add('hidden');
-        document.getElementById('music').play();
-        setInterval(spawnRose, 300);
-        
-        const now = new Date().getTime();
-        if (now < bday) {
-            document.getElementById('step-countdown').classList.remove('hidden');
-            runTimer();
-        } else {
-            showCelebration();
-        }
-    }
+function next(n){
+document.querySelectorAll("section")[n].scrollIntoView({
+behavior:"smooth"
+});
+}
 
-    function runTimer() {
-        const timerFunc = setInterval(() => {
-            const now = new Date().getTime();
-            const gap = bday - now;
+function yes(){
+document.getElementById("result").innerHTML=
+"❤️ Thank You! You Made My Day ❤️";
+confetti();
+}
 
-            document.getElementById('d').innerText = Math.floor(gap / (1000 * 60 * 60 * 24));
-            document.getElementById('h').innerText = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            document.getElementById('m').innerText = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
-            document.getElementById('s').innerText = Math.floor((gap % (1000 * 60)) / 1000);
+function moveNo(){
+let btn=document.getElementById("noBtn");
+btn.style.left=Math.random()*80+"%";
+btn.style.top=Math.random()*80+"%";
+}
 
-            if (gap < 0) {
-                clearInterval(timerFunc);
-                showCelebration();
-            }
-        }, 1000);
-    }
+function heart(){
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤";
+h.style.left=Math.random()*100+"vw";
+h.style.animationDuration=(Math.random()*3+2)+"s";
+document.body.appendChild(h);
 
-    function showCelebration() {
-        document.getElementById('step-countdown').classList.add('hidden');
-        document.getElementById('step-celebration').classList.remove('hidden');
-        rotateShayeri();
-    }
+setTimeout(()=>{
+h.remove();
+},5000);
+}
+setInterval(heart,250);
 
-    function rotateShayeri() {
-        const item = content[idx];
-        document.getElementById('headline').innerText = item.h;
-        document.getElementById('quote').innerHTML = item.q;
-        if(item.p) document.getElementById('sahid-tag').innerText = item.p;
-        
-        idx = (idx + 1) % content.length;
-        setTimeout(rotateShayeri, 5000);
-    }
+function confetti(){
+for(let i=0;i<200;i++){
+setTimeout(heart,i*20);
+}
+}
 
-    function spawnRose() {
-        const r = document.createElement('div');
-        r.className = 'rose';
-        r.innerHTML = ['🌹','💖','✨'][Math.floor(Math.random()*3)];
-        r.style.left = Math.random() * 100 + 'vw';
-        r.style.fontSize = Math.random() * 20 + 20 + 'px';
-        document.body.appendChild(r);
-        setTimeout(() => r.remove(), 5000);
-    }
 </script>
+
 </body>
 </html>
